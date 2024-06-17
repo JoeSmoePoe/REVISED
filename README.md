@@ -9,6 +9,8 @@
   <li>Install requirements: <code>pip install -r requirements.txt</code></li>
   <li>Modify the config</li>
   <li>Run: <code>py main.py</code></li>
+  <br><br>
+  If you want the script to run faster, install pytorch version that works the best with your gpu!
 </ol>
 
 ## Config
@@ -22,6 +24,9 @@
 
 ## Instructions
 After you started the script, go and focus on Roblox window.<br>Make sure your resolution is set to 1920x1080 and Roblox is in fullscreen.<br>Open quests tab and add 3 quests on top.<br>Make sure you can roll the minimum amount of chests per quest in config before starting it.<br>After you started it with your keybind, let it run till it stops.<br>If you experience any issues, or setted minimum chests to a too high amount, press <code>END</code> to turn off the script
+
+## Disclaimers
+Script can sometimes skip a good roll or dont recognize the quest content, it's AI. However try to increase delay in config if you feel like its skipping too much.
 
 ---
 
