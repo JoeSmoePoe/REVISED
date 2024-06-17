@@ -1,36 +1,85 @@
-<p align="center"><b>niepogoda's reroll script</b><p align="center">
-<p align="center">made for <i>Lee:// Rpg</i></p>
-  
----
+niepogoda's Reroll Script
 
-## Installation
-<ol>
-  <li>Download <a href="https://github.com/0e8/niepogodasreroll/releases/latest">niepogoda's reroll script</a></li>
-  <li>Install requirements: <code>pip install -r requirements.txt</code></li>
-  <li>Modify the config</li>
-  <li>Run: <code>py main.py</code></li>
-  <br><br>
-  If you want the script to run faster, install pytorch version that works the best with your gpu!
-</ol>
+About
+-----
 
-## Config
-<ul>
-  <li><b>minimum_chests</b> - minimum amount of chest for script to stop rerolling</li>
-  <li><b>delay</b> - delay between rerolls in seconds, increase when script is skipping good rolls or its just too fast.<br><br>
-  Safe amount for high-end pc is 0.2<br>
-  If you have low-end pc then try 0</li><br>
-  <b>HOWEVER!</b> try to experiment with the delay setting!
-  <li><b>keybind></b> - keybind for rolling chests</li>
-</ul>
+A simple, intuitive, and powerful script for automating chest rerolls in Lee:// Rpg!
 
-## Instructions
-After you started the script, go and focus on Roblox window.<br>Make sure your resolution is set to 1920x1080 and Roblox is in fullscreen.<br>Open quests tab and add 3 quests on top.<br>Make sure you can roll the minimum amount of chests per quest in config before starting it.<br>After you started it with your keybind (default F2), let it run till it stops.<br>If you experience any issues, or setted minimum chests to a too high amount, press <code>F3</code> (or your custom keybind) to turn off the script
+Features
+--------
 
-## Disclaimers
-Script can sometimes skip a good roll or dont recognize the quest content, it's AI. However try to increase delay in config if you feel like its skipping too much.
+### Automatic Chest Rerolling
 
----
+Automatically reroll chests in your game until you meet the minimum threshold.
 
-<p align="center"><i>made with ❤️ by niepogoda</i></p>
-<p align="center"><i>tested on python 3.10.6</i></p>
-<p align="center"><i>discord 0x3e7</i></p>
+### Customizable Settings
+
+Adjust the minimum chest threshold, delay between rerolls, and keybinds to suit your needs.
+
+### Multi-Quest Support
+
+Support for multiple quests/chests, so you can reroll all your three chests with ease.
+
+### Easy to Use
+
+Simple installation process and straightforward configuration.
+
+Installation
+-------------
+
+### Step 1: Install Required Libraries
+
+Run command:
+`pip install -r requirements.txt`
+
+### Step 2: Download the Script
+
+Download the <a href="https://github.com/0e8/niepogodasreroll/releases/latest">latest release</a> of this script.
+
+### Step 3: Configure the Script
+
+Create a new file named <b>config.json</b> in the same directory as the script and add the following configuration:
+
+<code>
+{
+  "minimum_chests": 20,
+  "delay": 1,
+  "start_keybind": "F2",
+  "kill_keybind": "F3"
+}
+</code>
+
+Replace the values with your desired settings.
+<i>delay is used in seconds and you can use fractions</i>
+
+### Step 4: Run the Script
+
+Run the script using Python, e.g., <code>py main.py</code>
+
+Getting Started
+---------------
+
+1. Open quests menu, and add 3 *preferably* the same quests
+2. Press the start keybind (F2 by default) to start the script.
+3. The script will automatically reroll chests until the minimum chest threshold is met.
+4. Press the kill keybind (F3 by default) to exit the script.
+
+Troubleshooting
+----------------
+
+Make sure you've installed all required libraries and configured the config.json file correctly.
+If you encounter any issues with OCR, try adjusting the OCR settings in the script or increasing the delay between rerolls.
+If you encounter any other issues, feel free to open an issue on GitHub.
+
+License
+-------
+
+This script is licensed under the MIT License. You are free to use, modify, and distribute it as you see fit.
+
+Acknowledgments
+--------------
+
+Thanks to **_tootle** for early testing this script!
+Thanks to **lmmortalz** for contributing to this project!
+
+I hope you enjoy using this script!
