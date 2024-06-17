@@ -55,7 +55,6 @@ pyperclip==1.8.2
 pyphen==0.15.0
 PyRect==0.2.0
 PyScreeze==0.1.30
-pytesseract==0.3.10
 python-bidi==0.4.2
 python-dateutil==2.9.0.post0
 python-doctr==0.8.1
