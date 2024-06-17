@@ -21,4 +21,4 @@
 </ul>
 
 ## Instructions
-After you started the script, go and focus on Roblox window.<br>Make sure your resolution is set to 1920x1080 and Roblox is in fullscreen.<br>Open quests tab and add 3 quests on top.<br>Make sure you can roll the minimum amount of chests per quest in config before starting it.<br>After you started it, let it run, it will stop when all 3 quests have rolled.<br>If you experience any issues, or setted minimum chests to a too high amount, press <code>END</code> to turn off the script
+After you started the script, go and focus on Roblox window.<br>Make sure your resolution is set to 1920x1080 and Roblox is in fullscreen.<br>Open quests tab and add 3 quests on top.<br>Make sure you can roll the minimum amount of chests per quest in config before starting it.<br>After you started it with your keybind, let it run till it stops.<br>If you experience any issues, or setted minimum chests to a too high amount, press <code>END</code> to turn off the script
