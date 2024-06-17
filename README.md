@@ -1,1 +1,1 @@
-# niepogodasreroll
+<center>niepogoda's reroll script</center>
