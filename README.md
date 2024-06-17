@@ -5,7 +5,7 @@
 
 ## Installation
 <ol>
-  <li>Download niepogoda's reroll script</li>
+  <li>Download <a href="https://github.com/0e8/niepogodasreroll/releases/latest">niepogoda's reroll script</a></li>
   <li>Install requirements: <code>pip install -r requirements.txt</code></li>
   <li>Modify the config</li>
   <li>Run: <code>py main.py</code></li>
