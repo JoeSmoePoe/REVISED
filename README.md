@@ -25,4 +25,5 @@ After you started the script, go and focus on Roblox window.<br>Make sure your r
 
 ---
 
+<p align="center"><i>made with ❤️ by niepogoda | discord 0x3e7</i></p>
 <p align="center"><i>tested on python 3.10.6</i></p>
