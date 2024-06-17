@@ -77,7 +77,7 @@ This script is licensed under the MIT License. You are free to use, modify, and 
 Acknowledgments
 --------------
 
-Thanks to **_tootle** for early testing this script!
+Thanks to **_tootle** for early testing this script!<br>
 Thanks to **lmmortalz** for contributing to this project!
 
 I hope you enjoy using this script!
