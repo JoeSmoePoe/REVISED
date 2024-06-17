@@ -1,4 +1,4 @@
-niepogoda's Reroll Script
+# niepogoda's Reroll Script
 
 About
 -----
