@@ -3,7 +3,7 @@ niepogoda's Reroll Script
 About
 -----
 
-A simple, intuitive, and powerful script for automating chest rerolls in Lee:// Rpg!
+A simple, intuitive, and powerful script for automating chest rerolls in ***Lee:// Rpg***!
 
 Features
 --------
