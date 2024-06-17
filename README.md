@@ -40,14 +40,12 @@ Download the <a href="https://github.com/0e8/niepogodasreroll/releases/latest">l
 
 Create a new file named <b>config.json</b> in the same directory as the script and add the following configuration:
 
-<code>
-{
+<code>{
   "minimum_chests": 20,
   "delay": 1,
   "start_keybind": "F2",
   "kill_keybind": "F3"
-}
-</code>
+}</code>
 
 Replace the values with your desired settings.
 <i>delay is used in seconds and you can use fractions</i>
