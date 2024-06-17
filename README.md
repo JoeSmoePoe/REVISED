@@ -27,6 +27,8 @@ Simple installation process and straightforward configuration.
 Installation
 -------------
 
+### Step 0: Install Python 3.10.6 (gonna make compatible with newer versions soon!)
+
 ### Step 1: Install Required Libraries
 
 Run command:
