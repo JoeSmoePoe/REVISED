@@ -8,193 +8,137 @@ import keyboard
 import cv2
 import json
 import os
+import logging
+from PIL import ImageGrab
+from tkinter import Tk, messagebox
 
-from PIL import Image, ImageGrab
+# Setup logging
+try:
+    os.remove("latest.log")
+except FileNotFoundError:
+    pass
 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+log_filename = "latest.log"
+file_handler = logging.FileHandler(log_filename)
+file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+logging.getLogger().addHandler(file_handler)
+
+# Screen resolution check
 user32 = ctypes.windll.user32
 screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
-if (screensize != (1920, 1080)):
-    print("Error: Script is only compatible with 1920x1080 resolution.")
-    print("Please adjust your screen resolution to 1920x1080 to use this script.")
-else:
-    print("Passed resolution check: {}".format(screensize))
+logging.info("Screen resolution detected: {}".format(screensize))
 
-print("[/] Initializing EasyOCR...")
-print("This may take a few seconds...")
+if screensize != (1920, 1080):
+    logging.warning("Script is optimized for 1920x1080 resolution. It will NOT work correctly.")
+
+# Initialize EasyOCR
+logging.info("Initializing EasyOCR...")
 reader = easyocr.Reader(['en'])
-print("[+] Initializing EasyOCR successful!")
+logging.info("EasyOCR initialization successful!")
 
+# Load configuration
 try:
-    config_file = open("config.json")
-except:
-    print("[X] Error! config.json not found!")
-    print("Please download config.json file and place it in scripts directory.")
+    with open("config.json") as config_file:
+        config = json.load(config_file)
+except FileNotFoundError:
+    logging.error("config.json not found! Please place it in the script's directory.")
     exit()
-
-config = json.load(config_file)
+except json.JSONDecodeError as e:
+    logging.error(f"Error decoding config.json: {e}")
+    exit()
 
 MINIMUM_CHESTS = config["minimum_chests"]
 DELAY = config["delay"]
 START_KEYBIND = config["start_keybind"]
 KILL_KEYBIND = config["kill_keybind"]
 
-print("\n[+] Config loaded!\n\n" + str(config) + "\n\n")
+logging.info("Config loaded: {}".format(config))
 
 running = True
 
 def getChests(quest_number):
-    match quest_number:
-        case 1:
-            quest1_screenshot = ImageGrab.grab(bbox=(900, 352, 1089, 410), include_layered_windows=False, all_screens=False)
-            quest1_screenshot.save('quest1.png')
+    bbox_map = {
+        1: (900, 352, 1089, 410),
+        2: (900, 450, 1089, 508),
+        3: (900, 546, 1089, 606)
+    }
+    if quest_number not in bbox_map:
+        return ["0"]
+    
+    bbox = bbox_map[quest_number]
+    quest_screenshot = ImageGrab.grab(bbox=bbox)
+    filename = f'quest{quest_number}.png'
+    quest_screenshot.save(filename)
 
-            image = cv2.imread("quest1.png")
-            normalized_image = cv2.normalize(image, None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX)
-            gray = cv2.cvtColor(normalized_image, cv2.COLOR_BGR2GRAY)
-            thresh = cv2.threshold(gray, 0, 255,
-                cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
+    image = cv2.imread(filename)
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
+    cv2.imwrite(filename, thresh)
 
-            cv2.imwrite("quest1.png", thresh)
+    try:
+        OCR_result = reader.readtext(filename, detail=0, width_ths=1, text_threshold=0.6)
+        logging.info(f"Successfully read quest {quest_number} content: {OCR_result}")
+        filtered = [re.search(r'\d+', item).group() for item in OCR_result if "Chest" in item]
+    except Exception as e:
+        logging.error(f"Error reading quest {quest_number} content: {e}")
+        filtered = ["0"]
 
-            try:
-                OCR_result = reader.readtext('quest1.png', detail = 0, width_ths = 1, text_threshold = 0.6)
-                print("[+] Successfully read quest 1 content: " + str(OCR_result))
+    filtered = filtered if filtered else ["0"]
+    logging.info(f"Found {filtered[0]} chests in quest {quest_number}")
+    return filtered
 
-                filtered = [re.search(r'\d+', item).group() for item in OCR_result if "Chest" in item]
-            except:
-                print("[X] Error! OCR 1")
-                filtered = []
-
-            if (filtered == []):
-                filtered = ["0"]
-
-            print("\n[!] Found " + str(filtered[0]) + " chests in quest 1\n")
-
-            return filtered
-        case 2:
-            quest2_screenshot = ImageGrab.grab(bbox=(900, 450, 1089, 508), include_layered_windows=False, all_screens=False)
-            quest2_screenshot.save('quest2.png')
-
-            image = cv2.imread("quest2.png")
-            gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-            thresh = cv2.threshold(gray, 0, 255,
-                cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
-            cv2.imwrite("quest2.png", thresh)
-
-            try:
-                OCR_result = reader.readtext('quest2.png', detail = 0, width_ths = 1, text_threshold = 0.6)
-                print("[+] Successfully read quest 2 content: " + str(OCR_result))
-
-                filtered = [re.search(r'\d+', item).group() for item in OCR_result if "Chest" in item]
-            except:
-                print("[X] Error! OCR 2")
-                filtered = []
-
-            if (filtered == []):
-                filtered = ["0"]
-
-            print("\n[!] Found " + str(filtered[0]) + " chests in quest 2\n")
-
-            return filtered
-
-        case 3:
-            quest3_screenshot = ImageGrab.grab(bbox=(900, 546, 1089, 606), include_layered_windows=False, all_screens=False)
-            quest3_screenshot.save('quest3.png')
-
-            image = cv2.imread("quest3.png")
-            gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-            thresh = cv2.threshold(gray, 0, 255,
-                cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
-            cv2.imwrite("quest3.png", thresh)
-
-            try:
-                OCR_result = reader.readtext('quest3.png', detail = 0, width_ths = 1, text_threshold = 0.6)
-                print("[+] Successfully read quest 3 content: " + str(OCR_result))
-
-                filtered = [re.search(r'\d+', item).group() for item in OCR_result if "Chest" in item]
-            except:
-                print("[X] Error! OCR 3")
-                filtered = []
-
-            if (filtered == []):
-                filtered = ["0"]
-
-            print("\n[!] Found " + str(filtered[0]) + " chests in quest 3\n")
-
-            return filtered
-
-
-        case _:
-            return
-        
 def reroll(quest_number):
-    match quest_number:
-        case 1:
-            pydirectinput.moveTo(800, 395)
-            pydirectinput.moveTo(801, 396)
-            pydirectinput.click()
+    coordinates = {
+        1: (800, 395),
+        2: (800, 495),
+        3: (800, 595)
+    }
+    if quest_number not in coordinates:
+        return
+    
+    x, y = coordinates[quest_number]
+    pydirectinput.moveTo(x, y)
+    pydirectinput.moveTo(x+1, y+1)
+    pydirectinput.click()
 
-            print("[+] Rerolling chest 1...")
-            print("[+] Waiting for chest 1 contents to refresh...")
-            return
-        case 2:
-            pydirectinput.moveTo(800, 495)
-            pydirectinput.moveTo(801, 496)
-            pydirectinput.click()
+    logging.info(f"Rerolling chest {quest_number}... Waiting for contents to refresh...")
 
-            print("[+] Rerolling chest 2...")
-            print("[+] Waiting for chest 2 contents to refresh...")
-            return
-        case 3:
-            pydirectinput.moveTo(800, 595)
-            pydirectinput.moveTo(801, 596)
-            pydirectinput.click()
-
-            print("[+] Rerolling chest 3...")
-            print("[+] Waiting for chest 3 contents to refresh...")
-            return
-
-def main():
-    print("[+] Script loaded!\n > Press " + START_KEYBIND + " to start rerolling.\n > Press " + KILL_KEYBIND + " to exit.")
+def main_loop():
+    global running
+    logging.info(f"Script loaded! Press {START_KEYBIND} to start rerolling. Press {KILL_KEYBIND} to exit.")
     while running:
         time.sleep(0.001)
-        if (keyboard.is_pressed("END")): break
-
-        if (keyboard.is_pressed(START_KEYBIND)):
+        if keyboard.is_pressed(START_KEYBIND):
             time.sleep(0.2)
-
-            while (int(getChests(1)[0]) < MINIMUM_CHESTS):
-                reroll(1)
-                time.sleep(DELAY)
-            
-            while (int(getChests(2)[0]) < MINIMUM_CHESTS):
-                reroll(2)
-                time.sleep(DELAY)
-            
-            while (int(getChests(3)[0]) < MINIMUM_CHESTS):
-                reroll(3)
-                time.sleep(DELAY)
+            for quest_number in range(1, 4):
+                while int(getChests(quest_number)[0]) < MINIMUM_CHESTS:
+                    reroll(quest_number)
+                    time.sleep(DELAY)
 
 def killswitch():
     global running
-
     keyboard.wait(KILL_KEYBIND)
-    print("\n[+] Exiting...")
-    
+    running = False
+    cleanup()
+    os._exit(0)
+
+def cleanup():
+    logging.info("Cleaning up temporary files...")
     try:
         os.remove("quest1.png")
         os.remove("quest2.png")
         os.remove("quest3.png")
-    except:
+    except FileNotFoundError:
         pass
-    os._exit(0)
+    logging.info("Exiting...")
 
-time.sleep(1)
-os.system("cls")
-print("\n\n > niepogoda's reroll script < \n\n")
+if __name__ == "__main__":
+    time.sleep(1)
+    logging.info(" > niepogoda's reroll script < ")
 
-main_thread = threading.Thread(target=main)
-main_thread.daemon = True
-main_thread.start()
+    main_thread = threading.Thread(target=main_loop)
+    main_thread.daemon = True
+    main_thread.start()
 
-killswitch()
+    killswitch()
