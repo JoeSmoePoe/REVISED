@@ -34,6 +34,8 @@ Installation
 Run command:
 `pip install -r requirements.txt`
 
+You will want to install right torch version for your pc https://pytorch.org/get-started/locally/
+
 ### Step 2: Download the Script
 
 Download the <a href="https://github.com/0e8/niepogodasreroll/releases/latest">latest release</a> of this script.
