@@ -163,17 +163,17 @@ def main():
         if (keyboard.is_pressed(START_KEYBIND)):
             time.sleep(0.2)
 
-            while (int(getChests(1)[0]) < MINIMUM_CHESTS and running):
-                time.sleep(DELAY)
+            while (int(getChests(1)[0]) < MINIMUM_CHESTS):
                 reroll(1)
-
-            while (int(getChests(2)[0]) < MINIMUM_CHESTS and running):
                 time.sleep(DELAY)
+            
+            while (int(getChests(2)[0]) < MINIMUM_CHESTS):
                 reroll(2)
-
-            while (int(getChests(3)[0]) < MINIMUM_CHESTS and running):
                 time.sleep(DELAY)
+            
+            while (int(getChests(3)[0]) < MINIMUM_CHESTS):
                 reroll(3)
+                time.sleep(DELAY)
 
 def killswitch():
     global running
