@@ -49,6 +49,7 @@ Before using this script, ensure you have the following installed:
 ## Notes
 
 - **Logging:** Detailed logs are written to `latest.log` in the script's directory. Check this file for information on script operations and any errors encountered.
+- **Pull requests:** If you want to make a pull request, please do it at `tests` branch!
 
 ## Troubleshooting
 
