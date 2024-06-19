@@ -1,0 +1,4 @@
+2024-06-19 16:27:26,826 - INFO - Screen resolution detected: (1920, 1080)
+2024-06-19 16:27:26,826 - INFO - Initializing EasyOCR...
+2024-06-19 16:27:26,827 - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2024-06-19 16:27:26,830 - WARNING - Downloading detection model, please wait. This may take several minutes depending upon your network connection.
