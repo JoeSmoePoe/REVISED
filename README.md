@@ -1,89 +1,56 @@
-# niepogoda's Reroll Script
+# niepogoda's reroll script
 
-About
------
+This script automates the process of rerolling quests in ***Lee:// RPG***. It utilizes OCR to read from screen.
 
-A simple, intuitive, and powerful script for automating chest rerolls in ***Lee:// Rpg***!
+## Prerequisites
 
-Features
---------
+Before using this script, ensure you have the following installed:
 
-### Automatic Chest Rerolling
+- Python (version 3.10.6 or higher recommended)
+- Required Python packages (install via `pip install -r requirements.txt`)
+- Windows operating system
 
-Automatically reroll chests in your game until you meet the minimum threshold.
+## Setup Instructions
 
-### Customizable Settings
+1. **Install Python:**
+   - If Python is not installed, download it from [python.org](https://www.python.org/downloads/) and follow the installation instructions.
 
-Adjust the minimum chest threshold, delay between rerolls, and keybinds to suit your needs.
+2. **Install Dependencies:**
+   - Open a command prompt or terminal.
+   - Navigate to the directory containing `reroll.py` and `requirements.txt`.
+   - Run the following command to install required packages:
+     ```
+     pip install -r requirements.txt
+     ```
 
-### Multi-Quest Support
+3. **Configure Screen Regions:**
+   - Run `regions.py` by double-clicking on it. This script allows you to select specific regions on your screen where quests and reroll buttons are located.
+   - Follow the on-screen instructions to select regions for Quests 1, 2, 3, and their respective reroll buttons.
+   - Save the regions when prompted. This will generate a `regions.json` file that `reroll.py` will use.
 
-Support for multiple quests/chests, so you can reroll all your three chests with ease.
+   How to select those areas?
+   <img src="./img/questarea.png">
+   <img src="./img/buttonarea.png>
 
-### Easy to Use
+4. **Configure `config.json`:**
+   - Ensure `config.json` is present in the script's directory with the following parameters:
+     - `minimum_chests`: Minimum number of chests required in each quest.
+     - `delay`: Delay (in seconds) between each reroll.
+     - `start_keybind`: Keyboard key to start the reroll process.
+     - `kill_keybind`: Keyboard key to stop the script.
 
-Simple installation process and straightforward configuration.
+5. **Run the Script:**
+   - Double-click on `reroll.py` to execute the script.
+   - Once started, press `start_keybind` (configured in `config.json`) to begin the reroll process.
+   - Press `kill_keybind` to stop the script at any time.
 
-Installation
--------------
+## Notes
 
-### Works on Python 3.12.4 | If you encounter any issues, you can try Python 3.10.
+- **Logging:** Detailed logs are written to `latest.log` in the script's directory. Check this file for information on script operations and any errors encountered.
 
-### Step 1: Install Required Libraries
+## Troubleshooting
 
-Run command:
-`pip install -r requirements.txt`
+- If the script does not behave as expected, ensure all dependencies are correctly installed and configured.
+- Check `latest.log` for error messages or warnings that may indicate issues with screen resolution or configuration files.
 
-You will want to install right torch version for your pc https://pytorch.org/get-started/locally/
-
-### Step 2: Download the Script
-
-Download the <a href="https://github.com/0e8/niepogodasreroll/releases/latest">latest release</a> of this script.
-
-### Step 3: Configure the Script
-
-Create a new file named <b>config.json</b> in the same directory as the script and add the following configuration:
-
-<code>{
-  "minimum_chests": 20,
-  "delay": 1,
-  "start_keybind": "F2",
-  "kill_keybind": "F3"
-}</code>
-
-Replace the values with your desired settings.
-<i>delay is used in seconds and you can use fractions</i>
-
-You can use the `config.json.example` file as an template.
-
-### Step 4: Run the Script
-
-Run the script using Python, e.g., <code>py main.py</code>
-
-Getting Started
----------------
-
-1. Open quests menu, and add 3 *preferably* the same quests
-2. Press the start keybind (F2 by default) to start the script.
-3. The script will automatically reroll chests until the minimum chest threshold is met.
-4. Press the kill keybind (F3 by default) to exit the script.
-
-Troubleshooting
-----------------
-
-Make sure you've installed all required libraries and configured the config.json file correctly.
-If you encounter any issues with OCR, try adjusting the OCR settings in the script or increasing the delay between rerolls.
-If you encounter any other issues, feel free to open an issue on GitHub.
-
-License
--------
-
-This script is licensed under the MIT License. You are free to use, modify, and distribute it as you see fit.
-
-Acknowledgments
---------------
-
-Thanks to **_tootle** for early testing this script!<br>
-Thanks to **lmmortalz** for contributing to this project!
-
-I hope you enjoy using this script!
+For further assistance, contact me on Discord or refer to the documentation of the libraries used in this script.
