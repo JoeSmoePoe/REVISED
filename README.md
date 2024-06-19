@@ -28,9 +28,9 @@ Before using this script, ensure you have the following installed:
    - Follow the on-screen instructions to select regions for Quests 1, 2, 3, and their respective reroll buttons.
    - Save the regions when prompted. This will generate a `regions.json` file that `reroll.py` will use.
 
-   How to select those areas?
-   <img src="./img/questarea.png">
-   <img src="./img/buttonarea.png>
+   **How to select those areas?** <br>
+   <img src="./img/questarea.png"> <br>
+   <img src="./img/buttonarea.png">
 
 4. **Configure `config.json`:**
    - Ensure `config.json` is present in the script's directory with the following parameters:
