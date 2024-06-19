@@ -54,6 +54,8 @@ Create a new file named <b>config.json</b> in the same directory as the script a
 Replace the values with your desired settings.
 <i>delay is used in seconds and you can use fractions</i>
 
+You can use the `config.json.example` file as an template.
+
 ### Step 4: Run the Script
 
 Run the script using Python, e.g., <code>py main.py</code>
