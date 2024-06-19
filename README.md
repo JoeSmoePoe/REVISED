@@ -24,7 +24,7 @@ Before using this script, ensure you have the following installed:
      ```
 
 3. **Configure Screen Regions:**
-   - Run `regions.py` by double-clicking on it. This script allows you to select specific regions on your screen where quests and reroll buttons are located.
+   - Run `py regions.py`. This script allows you to select specific regions on your screen where quests and reroll buttons are located.
    - Follow the on-screen instructions to select regions for Quests 1, 2, 3, and their respective reroll buttons.
    - Save the regions when prompted. This will generate a `regions.json` file that `reroll.py` will use.
 
@@ -42,7 +42,7 @@ Before using this script, ensure you have the following installed:
      - `kill_keybind`: Keyboard key to stop the script.
 
 5. **Run the Script:**
-   - Double-click on `reroll.py` to execute the script.
+   - Ryb `py reroll.py` to execute the script.
    - Once started, press `start_keybind` (configured in `config.json`) to begin the reroll process.
    - Press `kill_keybind` to stop the script at any time.
 
