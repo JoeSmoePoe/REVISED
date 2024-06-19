@@ -1,5 +1,8 @@
 # niepogoda's reroll script
 
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) 
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/0e8/niepogodasreroll)
+
 This script automates the process of rerolling quests in ***Lee:// RPG***. It utilizes OCR to read from screen.
 
 ## Prerequisites
