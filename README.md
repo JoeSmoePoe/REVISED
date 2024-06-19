@@ -30,7 +30,9 @@ Before using this script, ensure you have the following installed:
 
    **How to select those areas?** <br>
    <img src="./img/questarea.png"> <br>
-   <img src="./img/buttonarea.png">
+   <img src="./img/buttonarea.png"> <br>
+
+   **Make sure to leave some margins around the text and to not get the *Kill Quest* label in the area!**
 
 4. **Configure `config.json`:**
    - Ensure `config.json` is present in the script's directory with the following parameters:
