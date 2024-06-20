@@ -1,4 +1,56 @@
-# niepogoda's reroll script
+# ALL CREDIT GOES TO niepogoda
+
+
+# Step 1: Download Tesseract OCR
+
+**Visit the Official Tesseract GitHub Repository: Open your browser and go to the Tesseract GitHub releases page. (https://github.com/tesseract-ocr/tesseract/releases)
+
+Choose the Correct Installer: Scroll down to the "Assets" section of the latest stable release and download the appropriate installer for your operating system:
+
+For Windows, download the .exe file.
+For macOS, Tesseract can be installed via Homebrew.
+For Linux, Tesseract can be installed using the package manager.**
+
+# Step 2: Install Tesseract OCR
+
+**Windows
+
+Run the Installer: Locate the downloaded .exe file and double-click it to run the installer.
+Follow the Installation Wizard: Proceed through the installation steps, selecting the default options unless you have specific needs.
+Add Tesseract to System Path: Ensure that you check the option to add Tesseract to your system's PATH during installation. If you missed this, you can add it manually:
+Right-click on 'This PC' or 'My Computer' and select 'Properties'.
+Go to 'Advanced system settings' and click 'Environment Variables'.
+Find the 'Path' variable under System variables, select it, and click 'Edit'.
+Add the path to the Tesseract executable (e.g., C:\Program Files\Tesseract-OCR) and click 'OK'.
+macOS
+
+Install Homebrew: If you don't have Homebrew installed, open Terminal and run the following command:
+
+```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
+
+Install Tesseract: Once Homebrew is installed, run the following command in Terminal:
+
+```brew install tesseract```
+
+Linux
+
+Update Package Lists: Open Terminal and update your package lists:
+
+```sudo apt update```
+
+Install Tesseract: Run the following command:**
+
+```sudo apt install tesseract-ocr```
+
+**# Step 3: Verify Installation
+
+Open Command Prompt or Terminal: Open the Command Prompt on Windows or Terminal on macOS/Linux.
+Check Tesseract Version: Type the following command and press Enter:
+
+```tesseract --version```
+
+You should see the version information of Tesseract OCR, indicating that it has been installed correctly.**
+
 
 This script automates the process of rerolling quests in ***Lee:// RPG***. It utilizes OCR to read from screen.
 
