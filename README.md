@@ -38,11 +38,11 @@ Update Package Lists: Open Terminal and update your package lists:
 
 ```sudo apt update```
 
-Install Tesseract: Run the following command:**
+Install Tesseract: Run the following command:
 
 ```sudo apt install tesseract-ocr```
 
-**# Step 3: Verify Installation
+# Step 3: Verify Installation
 
 Open Command Prompt or Terminal: Open the Command Prompt on Windows or Terminal on macOS/Linux.
 Check Tesseract Version: Type the following command and press Enter:
