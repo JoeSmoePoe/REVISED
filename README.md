@@ -80,9 +80,9 @@ Before using this script, ensure you have the following installed:
    - Follow the on-screen instructions to select regions for Quests 1, 2, 3, and their respective reroll buttons.
    - Save the regions when prompted. This will generate a `regions.json` file that `reroll.py` will use.
 
-   **How to select those areas?** <br>
-   <img src="./img/questarea.png"> <br>
-   <img src="./img/buttonarea.png"> <br>
+**How to select those areas?** <br>
+<img src="https://github.com/JoeSmoePoe/REVISED/blob/main/REVISEDniepogodasreroll-3.0/img/questarea.png"> <br>
+<img src="https://github.com/JoeSmoePoe/REVISED/blob/main/REVISEDniepogodasreroll-3.0/img/buttonarea.png"> <br>
 
    **Make sure to leave some margins around the text and to not get the *Kill Quest* label in the area!**
 
