@@ -49,7 +49,6 @@ except json.JSONDecodeError as e:
     logging.error(f"Error decoding regions.json: {e}")
     exit()
 
-MINIMUM_CHESTS = config["minimum_chests"]
 DELAY = config["delay"]
 START_KEYBIND = config["start_keybind"]
 KILL_KEYBIND = config["kill_keybind"]
@@ -126,7 +125,7 @@ def main_loop():
             for quest_number in range(1, 5):  # Changed range to include quest 4
                 while True:
                     chest_count = int(getChests(quest_number)[0])
-                    if chest_count >= MINIMUM_CHESTS:
+                    if chest_count >= config["minimum_chests"][f"quest{quest_number}"]:
                         logging.info(f"Quest {quest_number} has enough chests: {chest_count}")
                         break
                     reroll(quest_number)
