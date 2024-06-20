@@ -1,7 +1,0 @@
-{
-    "minimum_chests": 15,
-    "delay": 0.2,
-    "start_keybind": "F3",
-    "kill_keybind": "END",
-    "minimum_enemies": 5
-}
