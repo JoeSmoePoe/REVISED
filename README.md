@@ -1,4 +1,4 @@
-# ALL CREDIT GOES TO niepogoda
+# ALL CREDIT GOES TO - niepogoda
 
 
 # Step 1: Download Tesseract OCR
