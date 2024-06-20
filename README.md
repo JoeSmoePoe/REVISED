@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ALL CREDIT GOES TO - niepogoda
 
 
@@ -51,6 +52,12 @@ Check Tesseract Version: Type the following command and press Enter:
 
 You should see the version information of Tesseract OCR, indicating that it has been installed correctly.**
 
+=======
+# niepogoda's reroll script
+
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) 
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/0e8/niepogodasreroll)
+>>>>>>> niepogodasrerollTesseract/main
 
 This script automates the process of rerolling quests in ***Lee:// RPG***. It utilizes OCR to read from screen.
 
@@ -76,6 +83,7 @@ Before using this script, ensure you have the following installed:
      ```
 
 3. **Configure Screen Regions:**
+<<<<<<< HEAD
    - Run `regions.py` by double-clicking on it. This script allows you to select specific regions on your screen where quests and reroll buttons are located.
    - Follow the on-screen instructions to select regions for Quests 1, 2, 3, and their respective reroll buttons.
    - Save the regions when prompted. This will generate a `regions.json` file that `reroll.py` will use.
@@ -83,6 +91,15 @@ Before using this script, ensure you have the following installed:
 **How to select those areas?** <br>
 <img src="https://github.com/JoeSmoePoe/REVISED/blob/main/REVISEDniepogodasreroll-3.0/img/questarea.png"> <br>
 <img src="https://github.com/JoeSmoePoe/REVISED/blob/main/REVISEDniepogodasreroll-3.0/img/buttonarea.png"> <br>
+=======
+   - Run `py regions.py`. This script allows you to select specific regions on your screen where quests and reroll buttons are located.
+   - Follow the on-screen instructions to select regions for Quests 1, 2, 3, and their respective reroll buttons.
+   - Save the regions when prompted. This will generate a `regions.json` file that `reroll.py` will use.
+
+   **How to select those areas?** <br>
+   <img src="./img/questarea.png"> <br>
+   <img src="./img/buttonarea.png"> <br>
+>>>>>>> niepogodasrerollTesseract/main
 
    **Make sure to leave some margins around the text and to not get the *Kill Quest* label in the area!**
 
@@ -94,13 +111,21 @@ Before using this script, ensure you have the following installed:
      - `kill_keybind`: Keyboard key to stop the script.
 
 5. **Run the Script:**
+<<<<<<< HEAD
    - Double-click on `reroll.py` to execute the script.
+=======
+   - Ryb `py reroll.py` to execute the script.
+>>>>>>> niepogodasrerollTesseract/main
    - Once started, press `start_keybind` (configured in `config.json`) to begin the reroll process.
    - Press `kill_keybind` to stop the script at any time.
 
 ## Notes
 
 - **Logging:** Detailed logs are written to `latest.log` in the script's directory. Check this file for information on script operations and any errors encountered.
+<<<<<<< HEAD
+=======
+- **Pull requests:** If you want to make a pull request, please do it at `tests` branch!
+>>>>>>> niepogodasrerollTesseract/main
 
 ## Troubleshooting
 
