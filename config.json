@@ -1,0 +1,6 @@
+{
+    "minimum_chests": 45,
+    "delay": 0.2,
+    "start_keybind": "F2",
+    "kill_keybind": "F3"
+}
